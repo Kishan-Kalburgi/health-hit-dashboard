@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light">
-  <img class="navbar-brand mb-0 h1" src="https://hhaexchange.com/wp-content/uploads/2018/06/HHA_Logo_Horiz-1-1.svg" width="" height="" alt="">
+  <img class="navbar-brand mb-0 h1" src="https://hhaexchange.com/wp-content/uploads/2018/06/HHA_Logo_Horiz-1-1.svg" alt="logo">
 </nav>
 <div class="container-fluid">
   <div class="row" *ngIf="!isLoaded">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="row" *ngIf="selectedStateHealthHit?.region != undefined">
-      <div class="col-6">
+      <div class="col col-md-6">
         <div class="card">
           <h5 class="card-header">{{ selectedStateHealthHit.region }}</h5>
           <div class="card-body mb-3">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col col-md-6">
         <app-chart-widget [healthHit]="selectedStateHealthHit"></app-chart-widget>
       </div>
     </div>

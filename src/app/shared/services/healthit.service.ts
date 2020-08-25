@@ -41,7 +41,7 @@ export class HealthitService {
     return this.removeDuplicates(states, ['region_code']);
   }
 
-  removeDuplicates(array: StateModel[], key: string[]) {
+  removeDuplicates(array: StateModel[], key: string[]): StateModel[] {
     return array.filter(
       (s => o => (k => !s.has(k) && s.add(k))(key.map(k => o[k]).join('|')))(
         new Set()

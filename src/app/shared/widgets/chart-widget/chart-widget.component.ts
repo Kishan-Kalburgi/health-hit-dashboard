@@ -26,8 +26,8 @@ export class ChartWidgetComponent implements OnInit, OnChanges {
   ];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
-
   barChartData: ChartDataSets[] = [];
+
   constructor() { }
 
   ngOnInit() {

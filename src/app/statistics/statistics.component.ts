@@ -10,7 +10,7 @@ import { StatisticsConstants } from '../shared/constants/app.constants';
 export class StatisticsComponent implements OnInit, OnChanges {
 
   @Input() healthHit: HealtHitModel;
-  tableContent: { label: string, key: string }[]; // in-line interface
+  tableContent: { label: string, key: string }[];
   constructor() { }
 
   ngOnInit() {

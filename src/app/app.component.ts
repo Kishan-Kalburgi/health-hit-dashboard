@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   isLoaded = false;
   isError = false;
   states: StateModel[];
-  selectedStateName = '';
   selectedStateHealthHit: HealtHitModel;
 
   constructor(private _healthHitService: HealthitService) { }
@@ -25,11 +24,11 @@ export class AppComponent implements OnInit {
           this.isLoaded = true;
           this.states = this._healthHitService.getStateDropDawn();
         },
-        (error) => this.isError = true
+        () => this.isError = true
       );
   }
 
-  onSelectState(stateCode: string) {
+  onSelectState(stateCode: string): void {
     this.selectedStateHealthHit = this._healthHitService.getSelectedStateHealthHit(stateCode);
   }
 }
