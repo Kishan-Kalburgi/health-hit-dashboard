@@ -1,24 +1,8 @@
 <table class="table table-striped">
   <tbody>
-    <tr>
-      <td>At Least One Measure</td>
-      <td>0.9</td>
-    </tr>
-    <tr>
-      <td>Immunization measure</td>
-      <td>0.96</td>
-    </tr>
-    <tr>
-      <td>Reportable Result</td>
-      <td>0.93</td>
-    </tr>
-    <tr>
-      <td>Syndromic Measure</td>
-      <td>0.97</td>
-    </tr>
-    <tr>
-      <td>Registry Measure</td>
-      <td>0.04</td>
+    <tr *ngFor="let item of tableContent">
+      <td>{{ item.label }}</td>
+      <td>{{ item.key }}</td>
     </tr>
   </tbody>
 </table>

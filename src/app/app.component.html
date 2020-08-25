@@ -2,28 +2,46 @@
   <span class="navbar-brand mb-0 h1">Hospital Statistical</span>
 </nav>
 <div class="container-fluid">
-  <div class="row my-3">
+  <div class="row" *ngIf="!isLoaded">
     <div class="col">
-      <div class="card">
-        <h5 class="card-header">Period: Year 2015</h5>
-        <div class="card-body">
-          <app-drop-down-widget></app-drop-down-widget>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-grow text-warning" style="width: 5rem; height: 5rem;" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
-      <div class="card">
-        <h5 class="card-header">Alaska Station</h5>
-        <div class="card-body mb-3">
-          <app-statistics></app-statistics>
+  <div *ngIf="isLoaded">
+    <div class="row my-3">
+      <div class="col">
+        <div class="card">
+          <h5 class="card-header">Period: Year 2015</h5>
+          <div class="card-body">
+            <app-drop-down-widget [states]="states" (selectedState)="onSelectState($event)"></app-drop-down-widget>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-6">
-      <app-chart-widget></app-chart-widget>
+
+    <div class="row" *ngIf="selectedStateHealthHit?.region != undefined">
+      <div class="col-6">
+        <div class="card">
+          <h5 class="card-header">{{ selectedStateHealthHit.region }}</h5>
+          <div class="card-body mb-3">
+            <app-statistics [healthHit]="selectedStateHealthHit"></app-statistics>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <app-chart-widget [healthHit]="selectedStateHealthHit"></app-chart-widget>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="selectedStateHealthHit?.region == undefined">
+      <div class="col">
+        <p>Please select state...!!</p>
+      </div>
     </div>
   </div>
 </div>
