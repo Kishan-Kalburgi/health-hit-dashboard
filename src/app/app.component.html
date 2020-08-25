@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">Hospital Statistical</span>
+  <img class="navbar-brand mb-0 h1" src="https://hhaexchange.com/wp-content/uploads/2018/06/HHA_Logo_Horiz-1-1.svg" width="" height="" alt="">
 </nav>
 <div class="container-fluid">
   <div class="row" *ngIf="!isLoaded">
@@ -12,7 +12,11 @@
     </div>
   </div>
 
-  <div *ngIf="isLoaded">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="isError && isLoaded">
+    <strong>Oops!</strong> We have hit the snag. Please reload the page...!!
+  </div>
+
+  <div *ngIf="isLoaded && !isError">
     <div class="row my-3">
       <div class="col">
         <div class="card">

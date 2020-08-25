@@ -11,6 +11,7 @@ import { HealtHitModel } from './shared/models/healt-hit.model';
 export class AppComponent implements OnInit {
 
   isLoaded = false;
+  isError = false;
   states: StateModel[];
   selectedStateName = '';
   selectedStateHealthHit: HealtHitModel;
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
           this.isLoaded = true;
           this.states = this._healthHitService.getStateDropDawn();
         },
-        (error) => console.log(error)
+        (error) => this.isError = true
       );
   }
 

@@ -1,3 +1,8 @@
 .drop-down-container {
     max-width: 30%;
+
+    &--label{
+        background-color: #284f88;
+        color: white;
+    }
 }

@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { HealtHitModel } from '../models/healt-hit.model';
 import { StateModel } from '../models/state.model';
+import { HealthHitsApi } from '../constants/app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class HealthitService {
   constructor(private _http: HttpClient) { }
 
   fetchHealtHit(): Observable<void> {
-    return this._http.get<HealtHitModel[]>('https://dashboard.healthit.gov/api/open-api.php?source=hospital-mu-public-health-measures.csv')
+    return this._http.get<HealtHitModel[]>(HealthHitsApi)
       .pipe(
         map(data => {
           this.filterHealthHits(data);
@@ -29,7 +30,6 @@ export class HealthitService {
   filterHealthHits(healtHitModel: HealtHitModel[]): void {
     this.healthHits = healtHitModel.filter(e => e.period === this.year);
   }
-
 
   getStateDropDawn(): StateModel[] {
     const states = this.healthHits.map(healthHit => {
