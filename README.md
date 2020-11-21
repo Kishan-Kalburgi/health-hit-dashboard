@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Screenshot
 
+Link - https://github.com/Kishan-Kalburgi/health-hit-dashboard/issues/1
 
 ## Development server
 
